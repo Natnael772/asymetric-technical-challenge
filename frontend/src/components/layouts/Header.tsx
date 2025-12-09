@@ -94,7 +94,7 @@ function Header() {
           </button>
 
           <a
-            href="https://github.com/Asymetric-Ventures/Technical-Test"
+            href="https://github.com/Natnael772/asymetric-technical-challenge"
             target="_blank"
             rel="noopener noreferrer"
             className={`flex h-9 w-9 items-center justify-center rounded-lg transition-colors ${
