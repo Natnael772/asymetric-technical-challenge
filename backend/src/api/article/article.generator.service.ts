@@ -1,5 +1,5 @@
-import { prisma } from '@/infrastructure/prisma/client.js';
-import { huggingFaceService } from '../shared/hugging-face/hugging-face.service';
+import { prisma } from '../../infrastructure/prisma/client.js';
+import { huggingFaceService } from '../shared/hugging-face/hugging-face.service.js';
 
 class ArticleGeneratorService {
   private aiAuthorId: string | null = null;

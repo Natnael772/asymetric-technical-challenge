@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import { articleController } from './article.controller.js';
-import { validateRequest } from '@/middleware/validate-request.js';
-import { asyncHandler } from '@/middleware/async-handler';
+import { validateRequest } from '../../middleware/validate-request.js';
+import { asyncHandler } from '../../middleware/async-handler.js';
 
 import {
   getArticleSchema,
