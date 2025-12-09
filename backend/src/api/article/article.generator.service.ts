@@ -53,13 +53,11 @@ class ArticleGeneratorService {
     try {
       const authorId = await this.ensureAIAuthor();
 
-      // Generate dynamic topic using AI
-      console.log('🤔 Generating interesting topic...');
-      const topic = await huggingFaceService.generateTopic();
+      // Generate topic and article together in a single API call
+      console.log('🤔 Generating topic and article...');
+      const { topic, title, excerpt, content, tags } = await huggingFaceService.generateTopicAndArticle();
 
-      console.log(`📝 Generating article about: "${topic}"...`);
-
-      const { title, excerpt, content, tags } = await huggingFaceService.generateFullArticle(topic);
+      console.log(`📝 Generated article about: "${topic}"`);
       console.log(`🏷️ Generated tags: ${tags.join(', ')}`);
       const readingTime = this.calculateReadingTime(content);
       const imageUrl = this.getImageUrl(topic);
