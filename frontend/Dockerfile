@@ -1,5 +1,5 @@
 # Build stage
-FROM node:20-alpine AS builder
+FROM public.ecr.aws/docker/library/node:20-alpine AS builder
 
 WORKDIR /app
 
@@ -18,7 +18,7 @@ ENV VITE_API_URL=$VITE_API_URL
 RUN npm run build
 
 # Production stage
-FROM nginx:alpine
+FROM public.ecr.aws/nginx/nginx:alpine
 
 # Copy custom nginx config
 COPY nginx.conf /etc/nginx/conf.d/default.conf
