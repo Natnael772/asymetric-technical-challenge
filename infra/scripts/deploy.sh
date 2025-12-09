@@ -3,7 +3,7 @@ set -e
 
 # Load environment variables if present in .env file
 if [ -f .env ]; then
-  export $(cat .env | xargs)
+  export $(grep -v '^#' .env | xargs)
 fi
 
 # Check required variables
