@@ -7,6 +7,9 @@ WORKDIR /app
 COPY package*.json ./
 COPY prisma ./prisma/
 
+# Required for Prisma engines (provides OpenSSL libraries)
+RUN apk add --no-cache openssl
+
 # Install dependencies
 RUN npm ci
 
@@ -27,6 +30,9 @@ WORKDIR /app
 # Copy package files
 COPY package*.json ./
 COPY prisma ./prisma/
+
+# Required for Prisma engines (provides OpenSSL libraries)
+RUN apk add --no-cache openssl
 
 # Install production dependencies only
 RUN npm ci --omit=dev
