@@ -3,7 +3,7 @@
  */
 
 export const API_BASE_URL =
-  import.meta.env.VITE_API_URL || "http://localhost:3002/api";
+  import.meta.env.VITE_API_URL || "/api";
 
 export interface ApiError {
   message: string;
