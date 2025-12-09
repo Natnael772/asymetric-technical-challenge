@@ -5,7 +5,7 @@ set -e
 sudo yum update -y
 
 # Install dependencies
-sudo yum install -y unzip curl git
+sudo yum install -y unzip git
 
 # Install Docker
 sudo yum install -y docker
