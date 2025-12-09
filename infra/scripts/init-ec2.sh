@@ -18,8 +18,6 @@ sudo systemctl enable docker
 sudo usermod -aG docker $USER
 
 # Install Docker Compose
-# Note: Amazon Linux 2/2023 repositories might not have the latest docker-compose-plugin
-# So we install the standalone binary for reliability.
 DOCKER_COMPOSE_VERSION="v2.29.1"
 sudo curl -L "https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
