@@ -2,34 +2,35 @@
 set -e
 
 # Update system
-sudo apt-get update
-sudo apt-get upgrade -y
+sudo yum update -y
 
 # Install dependencies
-sudo apt-get install -y \
-    ca-certificates \
-    curl \
-    gnupg \
-    lsb-release \
-    unzip
+sudo yum install -y unzip curl git
 
 # Install Docker
-sudo mkdir -p /etc/apt/keyrings
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
-echo \
-  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
-  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo yum install -y docker
 
-sudo apt-get update
-sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
+# Start and Enable Docker service
+sudo systemctl start docker
+sudo systemctl enable docker
 
 # Add current user to docker group
 sudo usermod -aG docker $USER
 
+# Install Docker Compose
+# Note: Amazon Linux 2/2023 repositories might not have the latest docker-compose-plugin
+# So we install the standalone binary for reliability.
+DOCKER_COMPOSE_VERSION="v2.29.1"
+sudo curl -L "https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+
+# Verify Docker Compose installation
+docker-compose --version
+
 # Install AWS CLI v2
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 unzip awscliv2.zip
-sudo ./aws/install
+sudo ./aws/install --update
 
 # Clean up
 rm awscliv2.zip
