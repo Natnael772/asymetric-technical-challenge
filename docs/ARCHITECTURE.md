@@ -1,6 +1,6 @@
 # Architecture Documentation
 
-This document provides an overview of the Auto-Generated Blog Platform architecture, including component descriptions, data flow, and deployment workflow.
+This document provides an overview of the project architecture, including component descriptions, data flow, and deployment workflow.
 
 ## System Overview
 
@@ -30,17 +30,18 @@ The platform is a full-stack blog application that automatically generates artic
 
 The frontend is a single-page application built with React and Vite.
 
-| Aspect | Details |
-|--------|---------|
-| **Framework** | React 19 with TypeScript |
-| **Build Tool** | Vite |
-| **Styling** | TailwindCSS with Typography plugin |
-| **State Management** | React Query (TanStack Query) |
-| **Routing** | React Router v7 |
-| **Content Rendering** | react-markdown |
-| **Serving** | Nginx (in production) |
+| Aspect                | Details                            |
+| --------------------- | ---------------------------------- |
+| **Framework**         | React 19 with TypeScript           |
+| **Build Tool**        | Vite                               |
+| **Styling**           | TailwindCSS with Typography plugin |
+| **State Management**  | React Query (TanStack Query)       |
+| **Routing**           | React Router v7                    |
+| **Content Rendering** | react-markdown                     |
+| **Serving**           | Nginx (in production)              |
 
 **Key Features:**
+
 - Displays list of blog articles with pagination
 - Renders full article content (Markdown support)
 - Communicates with backend via REST API
@@ -49,18 +50,19 @@ The frontend is a single-page application built with React and Vite.
 
 The backend is a RESTful API built with Express and TypeScript.
 
-| Aspect | Details |
-|--------|---------|
-| **Runtime** | Node.js 20 |
-| **Framework** | Express with TypeScript |
-| **ORM** | Prisma |
-| **Validation** | Zod |
-| **Documentation** | Swagger/OpenAPI |
-| **Security** | Helmet, CORS |
-| **Scheduling** | node-cron |
+| Aspect             | Details                    |
+| ------------------ | -------------------------- |
+| **Runtime**        | Node.js 20                 |
+| **Framework**      | Express with TypeScript    |
+| **ORM**            | Prisma                     |
+| **Validation**     | Zod                        |
+| **Documentation**  | Swagger/OpenAPI            |
+| **Security**       | Helmet, CORS               |
+| **Scheduling**     | node-cron                  |
 | **AI Integration** | Hugging Face Inference API |
 
 **Key Features:**
+
 - CRUD operations for articles and authors
 - Automatic article generation using AI
 - Daily scheduled article generation (midnight)
@@ -95,11 +97,12 @@ PostgreSQL stores all application data.
 
 The scheduler runs inside the backend container and triggers automatic article generation.
 
-| Schedule | Action |
-|----------|--------|
+| Schedule                     | Action                 |
+| ---------------------------- | ---------------------- |
 | `0 0 * * *` (Midnight daily) | Generate 1 new article |
 
 **Process:**
+
 1. Scheduler triggers at midnight
 2. Calls `articleGeneratorService.generateArticle()`
 3. Service generates topic using Hugging Face AI
@@ -140,11 +143,11 @@ Scheduler              Generator Service      Hugging Face         Database
 
 ### Infrastructure Components
 
-| AWS Service | Purpose |
-|-------------|---------|
-| **EC2** | Single instance hosting all Docker containers |
-| **ECR** | Docker image registry (2 repos: frontend, backend) |
-| **CodeBuild** | CI/CD for building and pushing Docker images |
+| AWS Service   | Purpose                                            |
+| ------------- | -------------------------------------------------- |
+| **EC2**       | Single instance hosting all Docker containers      |
+| **ECR**       | Docker image registry (2 repos: frontend, backend) |
+| **CodeBuild** | CI/CD for building and pushing Docker images       |
 
 ### CI/CD Pipeline
 
@@ -217,6 +220,7 @@ docker-compose -f infra/docker-compose.yml up -d
 ## Scaling Considerations
 
 For horizontal scaling (future improvements):
+
 - Load balancer (ALB) in front of multiple EC2 instances
 - RDS for managed PostgreSQL
 - ElastiCache for session/cache management
