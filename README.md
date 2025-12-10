@@ -2,6 +2,8 @@
 
 A full-stack blog platform with AI-powered automatic article generation. Built with React, Node.js, PostgreSQL, and deployed on AWS using Docker.
 
+🌐 **Live Demo**: [http://34.237.51.31](http://34.237.51.31)
+
 ## 🏗️ High-Level Architecture
 
 ```

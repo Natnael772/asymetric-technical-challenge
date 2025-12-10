@@ -6,6 +6,8 @@ This document provides an overview of the project architecture, including compon
 
 The platform is a full-stack blog application that automatically generates articles using AI. It consists of three main components: a React frontend, a Node.js backend, and a PostgreSQL database.
 
+🌐 **Live Deployment**: [http://34.237.51.31](http://34.237.51.31)
+
 ```
                                     ┌──────────────────────────────────┐
                                     │           AWS Cloud             │
