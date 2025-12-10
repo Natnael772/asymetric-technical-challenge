@@ -1,5 +1,5 @@
 import { HfInference } from '@huggingface/inference';
-import { config } from '../../../config/index.js';
+import { config } from '../../config/index.js';
 
 class HuggingFaceService {
   private client: HfInference;

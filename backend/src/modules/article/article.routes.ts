@@ -8,7 +8,7 @@ import {
   listArticlesSchema,
   createArticleSchema,
   updateArticleSchema,
-} from './validators';
+} from './validators/index.js';
 
 const router = Router();
 

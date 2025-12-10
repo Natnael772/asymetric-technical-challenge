@@ -1,5 +1,5 @@
-import { articleGeneratorService } from '../../api/article/article.generator.service.js';
-import { huggingFaceService } from '../../api/shared/hugging-face/hugging-face.service.js';
+import { articleGeneratorService } from '../../modules/article/article.generator.service.js';
+import { huggingFaceService } from '../../modules/hugging-face/hugging-face.service.js';
 
 class SeedService {
   async run(): Promise<void> {

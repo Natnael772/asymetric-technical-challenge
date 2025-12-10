@@ -1,7 +1,7 @@
-import { prisma } from '../../infrastructure/prisma/client.js';
+import { prisma } from '../prisma/client.js';
 import { ApiError } from '../../utils/api-error.js';
-import { CreateAuthorDto, UpdateAuthorDto } from './dto';
-import { AuthorWithArticleCount } from './types';
+import { CreateAuthorDto, UpdateAuthorDto } from './dto/index.js';
+import { AuthorWithArticleCount } from './types/index.js';
 
 export class AuthorService {
   async findAll(): Promise<AuthorWithArticleCount[]> {

@@ -1,4 +1,4 @@
-import { prisma } from '../../infrastructure/prisma/client';
+import { prisma } from '../prisma/client';
 import { ApiError } from '../../utils/api-error';
 import { CreateArticleDto, UpdateArticleDto, ArticleQueryDto } from './dto';
 import { ArticleWithAuthor } from './types/article-domain.types';

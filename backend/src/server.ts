@@ -1,7 +1,7 @@
 import { createApp } from './app.js';
 import { config } from './config/index.js';
-import { seedService } from './scripts/seed/article-seed.service.js';
-import { schedulerService } from './infrastructure/scheduler/article.scheduler';
+import { schedulerService } from './jobs/cron/article-generator.cron.js';
+import { seedService } from './jobs/seed/article.seed.js';
 
 const app = createApp();
 

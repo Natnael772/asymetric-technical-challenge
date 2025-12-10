@@ -12,11 +12,7 @@ module.exports = {
     '^@utils/(.*)$': '<rootDir>/src/utils/$1',
     '^(\\.{1,2}/.*)\\.js$': '$1',
   },
-  collectCoverageFrom: [
-    'src/**/*.ts',
-    '!src/**/*.d.ts',
-    '!src/server.ts',
-  ],
+  collectCoverageFrom: ['src/**/*.ts', '!src/**/*.d.ts', '!src/server.ts'],
   coverageDirectory: 'coverage',
   verbose: true,
 };

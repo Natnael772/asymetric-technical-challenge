@@ -1,5 +1,5 @@
 import cron from 'node-cron';
-import { articleGeneratorService } from '../../api/article/article.generator.service.js';
+import { articleGeneratorService } from '../../modules/article/article.generator.service.js';
 
 class SchedulerService {
   private dailyJob: ReturnType<typeof cron.schedule> | null = null;

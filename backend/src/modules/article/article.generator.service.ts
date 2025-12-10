@@ -1,5 +1,5 @@
-import { prisma } from '../../infrastructure/prisma/client.js';
-import { huggingFaceService } from '../shared/hugging-face/hugging-face.service.js';
+import { prisma } from '../prisma/client.js';
+import { huggingFaceService } from '../hugging-face/hugging-face.service.js';
 
 class ArticleGeneratorService {
   private aiAuthorId: string | null = null;
@@ -55,7 +55,8 @@ class ArticleGeneratorService {
 
       // Generate topic and article together in a single API call
       console.log('🤔 Generating topic and article...');
-      const { topic, title, excerpt, content, tags } = await huggingFaceService.generateTopicAndArticle();
+      const { topic, title, excerpt, content, tags } =
+        await huggingFaceService.generateTopicAndArticle();
 
       console.log(`📝 Generated article about: "${topic}"`);
       console.log(`🏷️ Generated tags: ${tags.join(', ')}`);
