@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { FaSun, FaMoon, FaGithub } from "react-icons/fa";
+import { paths } from "../../paths";
 
 function Header() {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -65,7 +66,7 @@ function Header() {
 
         <div className="flex items-center gap-2">
           <NavLink
-            to="/"
+            to={paths.articles}
             className={`hidden rounded-lg px-3 py-1.5 text-sm font-medium transition-colors sm:block ${
               isScrolled
                 ? "text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white"
