@@ -9,23 +9,8 @@ import { swaggerSpec } from './config/swagger';
 export function createApp(): Express {
   const app = express();
 
-  // Security middleware with relaxed settings for HTTP production
-  app.use(
-    helmet({
-      // Disable policies that require HTTPS
-      crossOriginOpenerPolicy: false,
-      crossOriginEmbedderPolicy: false,
-      // Relax CSP for Swagger UI
-      contentSecurityPolicy: {
-        directives: {
-          defaultSrc: ["'self'"],
-          styleSrc: ["'self'", "'unsafe-inline'"],
-          scriptSrc: ["'self'", "'unsafe-inline'"],
-          imgSrc: ["'self'", 'data:', 'https:'],
-        },
-      },
-    })
-  );
+  // Security middleware
+  app.use(helmet());
   app.use(cors());
 
   // Body parsing
