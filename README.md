@@ -46,6 +46,7 @@ docker-compose up -d
 ```
 
 The application will be available at:
+
 - **Frontend**: http://localhost:80
 - **Backend API**: http://localhost:3000/api
 - **API Docs**: http://localhost:3000/api-docs
@@ -122,30 +123,30 @@ cd ../frontend && docker build -t asymetric-frontend .
 
 ### Backend (`backend/.env`)
 
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `NODE_ENV` | Environment mode | `development` or `production` |
-| `PORT` | Server port | `3000` |
-| `DATABASE_URL` | PostgreSQL connection string | `postgresql://user:pass@localhost:5432/dbname` |
-| `HUGGINGFACE_API_TOKEN` | Hugging Face API token for AI generation | `hf_xxxxx` |
+| Variable                | Description                              | Example                                        |
+| ----------------------- | ---------------------------------------- | ---------------------------------------------- |
+| `NODE_ENV`              | Environment mode                         | `development` or `production`                  |
+| `PORT`                  | Server port                              | `3000`                                         |
+| `DATABASE_URL`          | PostgreSQL connection string             | `postgresql://user:pass@localhost:5432/dbname` |
+| `HUGGINGFACE_API_TOKEN` | Hugging Face API token for AI generation | `hf_xxxxx`                                     |
 
 ### Frontend (`frontend/.env`)
 
-| Variable | Description | Example |
-|----------|-------------|---------|
+| Variable       | Description     | Example                               |
+| -------------- | --------------- | ------------------------------------- |
 | `VITE_API_URL` | Backend API URL | `http://localhost:3000/api` or `/api` |
 
 ### Infrastructure (`infra/.env`)
 
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `AWS_REGION` | AWS region | `us-east-1` |
-| `AWS_ACCOUNT_ID` | AWS account ID | `123456789012` |
+| Variable            | Description                 | Example                                                           |
+| ------------------- | --------------------------- | ----------------------------------------------------------------- |
+| `AWS_REGION`        | AWS region                  | `us-east-1`                                                       |
+| `AWS_ACCOUNT_ID`    | AWS account ID              | `123456789012`                                                    |
 | `ECR_REPO_FRONTEND` | Frontend ECR repository URI | `123456789012.dkr.ecr.us-east-1.amazonaws.com/asymetric-frontend` |
-| `ECR_REPO_BACKEND` | Backend ECR repository URI | `123456789012.dkr.ecr.us-east-1.amazonaws.com/asymetric-backend` |
-| `POSTGRES_USER` | Database username | `postgres` |
-| `POSTGRES_PASSWORD` | Database password | `your_password` |
-| `POSTGRES_DB` | Database name | `blog_db` |
+| `ECR_REPO_BACKEND`  | Backend ECR repository URI  | `123456789012.dkr.ecr.us-east-1.amazonaws.com/asymetric-backend`  |
+| `POSTGRES_USER`     | Database username           | `postgres`                                                        |
+| `POSTGRES_PASSWORD` | Database password           | `your_password`                                                   |
+| `POSTGRES_DB`       | Database name               | `blog_db`                                                         |
 
 ## 🧪 Running Tests
 
@@ -185,15 +186,11 @@ npm run lint
 
 ## 🛠️ Tech Stack
 
-| Layer | Technologies |
-|-------|-------------|
-| **Frontend** | React 19, Vite, TailwindCSS, React Query, React Router |
-| **Backend** | Node.js, Express, TypeScript, Prisma ORM |
-| **Database** | PostgreSQL 16 |
-| **AI** | Hugging Face Inference API |
-| **Scheduling** | node-cron |
-| **Deployment** | Docker, AWS (EC2, ECR, CodeBuild) |
-
-## 📄 License
-
-ISC
+| Layer          | Technologies                                           |
+| -------------- | ------------------------------------------------------ |
+| **Frontend**   | React 19, Vite, TailwindCSS, React Query, React Router |
+| **Backend**    | Node.js, Express, TypeScript, Prisma ORM               |
+| **Database**   | PostgreSQL 16                                          |
+| **AI**         | Hugging Face Inference API                             |
+| **Scheduling** | node-cron                                              |
+| **Deployment** | Docker, AWS (EC2, ECR, CodeBuild)                      |
